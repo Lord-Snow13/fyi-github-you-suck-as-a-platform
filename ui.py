@@ -30,21 +30,17 @@ def draw_grid():
             pygame.draw.rect(screen, Settings.COLOR_BLUE, rect, 1)
 
 
-def draw_unit(unit,color):
-    rect = pygame.Rect(
-        unit.coords[0],  # this coord is the x coord
-        unit.coords[1],  # this one is the y coord
-        Settings.GRID_BLOCK_SIZE,  # this one is the width
-        Settings.GRID_BLOCK_SIZE  # this one is the height
-    )
-    pygame.draw.rect(screen, color, rect, 1)
-
+def draw_unit(unit):
+    x = unit.coords[0]  # this coord is the x coord
+    y = unit.coords[1]  # this one is the y coord
+    unit.sprite = pygame.image.load(unit.image_path).convert_alpha() # needs to be convert_alpha
+    screen.blit(unit.sprite, (x, y))
 
 def draw_all_units():
     for unit in game.friendly_units_on_screen:
-        draw_unit(unit, Settings.COLOR_PASO)
+        draw_unit(unit)
     for unit in game.enemy_units_on_screen:
-        draw_unit(unit, Settings.COLOR_RED)
+        draw_unit(unit)
 
 
 def assign_targets():
@@ -81,4 +77,4 @@ while running:
 pygame.quit()
 sys.exit()
 
-# load basic sprits 
+# load basic sprits
