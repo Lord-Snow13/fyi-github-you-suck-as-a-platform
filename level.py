@@ -25,7 +25,7 @@ class Level:
                 if wave_index < len(all_rows[row_index]):
                     self.enemies_dbug[wave_number] += all_rows[row_index][wave_index]
                     if all_rows[row_index][wave_index] == Settings.BASIC_ENEMY_UNIT:
-                        enemy = units.BasicEnemy(1, 1, 'enemy', 'black punisher', 1, [Settings.WIDTH+1,row_index * Settings.GRID_BLOCK_SIZE], 1, 1, 1)
+                        enemy = units.BasicEnemy(1, 1, 'enemy', 'black punisher', 1, [Settings.WIDTH+1,row_index * Settings.GRID_BLOCK_SIZE], 1, 1, 1,"./assets/basic_enemy.png")
                         self.enemies[wave_number].append(enemy)
                 else:
                     self.enemies_dbug[wave_number] += ' '

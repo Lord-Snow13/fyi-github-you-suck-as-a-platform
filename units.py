@@ -166,10 +166,10 @@ class Bullet(Projectile):
 
 
 if __name__ == '__main__':
-    eu = EnemyUnit(1, 1, 'enemy', 'black punisher', 1, [0, 0], 60, 1, 1)
+    eu = EnemyUnit(1, 1, 'enemy', 'black punisher', 1, [0, 0], 60, 1, 1,"./assets/basic_enemy.png")
     print(eu)
 
-    w = Wall(1, 'wall', 'glory hole', 5, [100, 0], 1, 1, 1)
+    w = Wall(1, 'wall', 'glory hole', 5, [100, 0], 1, 1, 1,"./assets/basic_friendly_unit.png")
     print(w)
     eu.attack(w)
     print(w)
