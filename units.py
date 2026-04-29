@@ -2,16 +2,17 @@ from settings import Settings
 from settings import AttackDistance
 
 class Unit:
-    def __init__(self, unit_type, name, hp, coords, zaxis, modifiers):
+    def __init__(self, unit_type, name, hp, coords, zaxis, modifiers, image_path):
         self.unit_type = unit_type
         self.name = name
         self.hp = hp
         self.coords = coords
         self.zaxis = zaxis
         self.modifiers = modifiers
-
+        self.sprite = None
+        self.image_path = image_path
     def __str__(self):
-        return f"unit type:{self.unit_type} name:{self.name} hp:{self.hp} coords:{self.coords} zaxis:{self.zaxis} modifiers:{self.modifiers}"
+        return f"unit type:{self.unit_type} name:{self.name} hp:{self.hp} coords:{self.coords} zaxis:{self.zaxis} modifiers:{self.modifiers} image_path:{self.image_path}"
 
     def x_distance(self, other_point):
         return other_point.coords[0] - self.coords[0]  # x is the 0 of chords
@@ -88,31 +89,31 @@ class Movable:
 
 
 class Env(Unit):
-    def __init__(self, unit_type, name, hp, coords, zaxis, modifiers):
-        super().__init__(unit_type, name, hp, coords, zaxis, modifiers)
+    def __init__(self, unit_type, name, hp, coords, zaxis, modifiers, image_path):
+        super().__init__(unit_type, name, hp, coords, zaxis, modifiers, image_path)
 
 
 class Projectile(Unit, Dangerous, Movable):
-    def __init__(self, unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers):
-        Unit.__init__(self,unit_type, name, hp, coords, zaxis, modifiers)
+    def __init__(self, unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers, image_path):
+        Unit.__init__(self,unit_type, name, hp, coords, zaxis, modifiers, image_path)
         Dangerous.__init__(self, dmg, pulse)
         Movable.__init__(self, speed)
 
 
 class FriendlyUnit(Unit):
-    def __init__(self, price, unit_type, name, hp, coords, zaxis, modifiers):
-        super().__init__(unit_type, name, hp, coords, zaxis, modifiers)
+    def __init__(self, price, unit_type, name, hp, coords, zaxis, modifiers, image_path):
+        super().__init__(unit_type, name, hp, coords, zaxis, modifiers, image_path)
         self.price = price
 
 
 class EnemyUnit(Unit, Dangerous, Movable):
-    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers):
-        Unit.__init__(self, unit_type, name, hp, coords, zaxis, modifiers)
+    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
+        Unit.__init__(self, unit_type, name, hp, coords, zaxis, modifiers, image_path)
         Dangerous.__init__(self, dmg, pulse)
         Movable.__init__(self, speed)
-
     def attack(self, target):
         super().attack(self, target)
+
 
 
 class Modifier:
@@ -120,48 +121,48 @@ class Modifier:
 
 
 class BasicEnemy(EnemyUnit):
-    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers):
-        super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers)
+    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
+        super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
 
 
 class Boss(EnemyUnit):
-    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers):
-        super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers)
+    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
+        super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
 
 
 class Mine(Env):
-    def __init__(self, capacity, ttm, name, hp, coords, zaxis, modifiers):  # ttm "time to mine"
-        super().__init__('Mine', name, hp, coords, zaxis, modifiers)
+    def __init__(self, capacity, ttm, name, hp, coords, zaxis, modifiers, image_path):  # ttm "time to mine"
+        super().__init__('Mine', name, hp, coords, zaxis, modifiers, image_path)
         self.capacity = capacity
         self.ttm = ttm
 
 
 class Tree(Env):
-    def __init__(self, name, hp, coords, zaxis, modifiers):
-        super().__init__('Tree', name, hp, coords, zaxis, modifiers)
+    def __init__(self, name, hp, coords, zaxis, modifiers, image_path):
+        super().__init__('Tree', name, hp, coords, zaxis, modifiers, image_path)
 
 
 class Miner(FriendlyUnit, Movable):
-    def __init__(self, price, name, hp, coords, speed, zaxis, modifiers):
-        FriendlyUnit.__init__(self, price, 'Miner', name, hp, coords, zaxis, modifiers)
+    def __init__(self, price, name, hp, coords, speed, zaxis, modifiers, image_path):
+        FriendlyUnit.__init__(self, price, 'Miner', name, hp, coords, zaxis, modifiers, image_path)
         Movable.__init__(self, speed)
 
 
 class Wall(FriendlyUnit, Movable):
-    def __init__(self, price, unit_type, name, hp, coords,speed, zaxis, modifiers):
-        FriendlyUnit.__init__(self, price, unit_type, name, hp, coords, zaxis, modifiers)
+    def __init__(self, price, unit_type, name, hp, coords,speed, zaxis, modifiers, image_path):
+        FriendlyUnit.__init__(self, price, unit_type, name, hp, coords, zaxis, modifiers, image_path)
         Movable.__init__(self, speed)
 
 
 class Grid(FriendlyUnit):
-    def __init__(self, price, unit_type, name, hp, coords, zaxis, modifiers):
-        super().__init__(price, unit_type, name, hp, coords, zaxis, modifiers)
+    def __init__(self, price, unit_type, name, hp, coords, zaxis, modifiers, image_path):
+        super().__init__(price, unit_type, name, hp, coords, zaxis, modifiers, image_path)
 
 
 class Bullet(Projectile):
-    def __init__(self, unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers):
+    def __init__(self, unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers, image_path):
 
-        super().__init__(unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers)
+        super().__init__(unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers, image_path)
 
 
 if __name__ == '__main__':
