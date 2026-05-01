@@ -1,5 +1,5 @@
 from level import Level
-from units import Wall, BasicEnemy # hard coded fix it so we can inherit the whole unit shabang
+from units import *  # hard coded fix it so we can inherit the whole unit shabang
 
 
 class Game:

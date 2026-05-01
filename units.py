@@ -120,12 +120,17 @@ class Modifier:
     pass
 
 
-class BasicEnemy(EnemyUnit):
+class BasicChick(EnemyUnit):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
         super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
 
 
-class Boss(EnemyUnit):
+class ShootingChick(EnemyUnit):
+    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
+        super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
+
+
+class BossChick(EnemyUnit):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
         super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
 
