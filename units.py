@@ -115,6 +115,9 @@ class EnemyUnit(Unit, Dangerous, Movable):
         super().attack(self, target)
 
 
+class Shooting:
+    def shoot(self):
+        bullet = Bullet("basic_bullet", "bb", 1, 1, 1, (self.coords[0],self.coords[1]), 3, 1, None , None)
 
 class Modifier:
     pass
@@ -125,7 +128,7 @@ class BasicChick(EnemyUnit):
         super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
 
 
-class ShootingChick(EnemyUnit):
+class ShootingChick(EnemyUnit, Shooting):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
         super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
 
@@ -171,7 +174,7 @@ class Bullet(Projectile):
 
 
 if __name__ == '__main__':
-    eu = EnemyUnit(1, 1, 'enemy', 'black punisher', 1, [0, 0], 60, 1, 1,"./assets/basic_enemy.png")
+    eu = EnemyUnit(1, 1, 'enemy', 'black punisher', 1, [0, 0], 60, 1, 1, "assets/basic_chick.png")
     print(eu)
 
     w = Wall(1, 'wall', 'glory hole', 5, [100, 0], 1, 1, 1,"./assets/basic_friendly_unit.png")

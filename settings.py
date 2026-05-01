@@ -9,7 +9,15 @@ class Settings:
             setting, value = settings_row.split('=')
             if value.isnumeric():
                 settings[setting] = int(value)
-            elif setting in {'TITLE', 'BASIC_ENEMY_UNIT'}:
+            elif setting in {
+                'TITLE',
+                'BASIC_CHICK_UNIT',
+                'SHOOTING_CHICK_UNIT',
+                'BASIC_NERD_UNIT',
+                'BASIC_NERD_IMAGE',
+                'BASIC_CHICK_IMAGE',
+                'SHOOTING_CHICK_IMAGE',
+            }:
                 settings[setting] = value
 
             elif len(setting) >= 5:
@@ -38,6 +46,18 @@ class Settings:
                 cls.LONG_RANGE_DISTANCE = value * cls.GRID_BLOCK_SIZE
             elif setting == 'TITLE':
                 cls.TITLE = value
+            elif setting == "BASIC_NERD_UNIT":
+                cls.BASIC_NERD_UNIT = value
+            elif setting == "BASIC_CHICK_UNIT":
+                cls.BASIC_CHICK_UNIT = value
+            elif setting == "SHOOTING_CHICK_UNIT":
+                cls.SHOOTING_CHICK_UNIT = value
+            elif setting == "BASIC_NERD_IMAGE":
+                cls.BASIC_NERD_IMAGE = value
+            elif setting == "BASIC_CHICK_IMAGE":
+                cls.BASIC_CHICK_IMAGE = value
+            elif setting == "SHOOTING_CHICK_IMAGE":
+                cls.SHOOTING_CHICK_IMAGE = value
             elif setting == 'COLOR_BLACK':
                 cls.COLOR_BLACK = value
             elif setting == 'COLOR_BLUE':
@@ -46,8 +66,7 @@ class Settings:
                 cls.COLOR_PASO = value
             elif setting == 'COLOR_RED':
                 cls.COLOR_RED = value
-            elif setting == "BASIC_ENEMY_UNIT":
-                cls.BASIC_ENEMY_UNIT = value
+
         cls.WIDTH = cls.COLS * cls.GRID_BLOCK_SIZE
         cls.HEIGHT = cls.ROWS * cls.GRID_BLOCK_SIZE
 
