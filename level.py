@@ -30,7 +30,7 @@ class Level:
                         self.enemies[wave_number].append(enemy)
                     elif all_rows[row_index][wave_index] == Settings.SHOOTING_CHICK_UNIT:
                         enemy = units.ShootingChick(1, 1, 'enemy', 'egirl', 1, [Settings.WIDTH+1,row_index * Settings.GRID_BLOCK_SIZE], 1, 1, 1,
-                                                 Settings.SHOOTING_CHICK_IMAGE)
+                                                 Settings.SHOOTING_CHICK_IMAGE, 20)
                         self.enemies[wave_number].append(enemy)
                 else:
                     self.enemies_dbug[wave_number] += ' '

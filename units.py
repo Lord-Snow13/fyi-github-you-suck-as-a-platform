@@ -4,6 +4,7 @@ from settings import AttackDistance
 class Unit:
     def __init__(self, unit_type, name, hp, coords, zaxis, modifiers, image_path):
         self.unit_type = unit_type
+        self.is_shooter = False
         self.name = name
         self.hp = hp
         self.coords = coords
@@ -11,6 +12,7 @@ class Unit:
         self.modifiers = modifiers
         self.sprite = None
         self.image_path = image_path
+
     def __str__(self):
         return f"unit type:{self.unit_type} name:{self.name} hp:{self.hp} coords:{self.coords} zaxis:{self.zaxis} modifiers:{self.modifiers} image_path:{self.image_path}"
 
@@ -23,8 +25,6 @@ class Unit:
     def place(self, x, y):
         self.coords[0] = x
         self.coords[1] = y
-
-
 
 
 class Dangerous:
@@ -117,8 +117,15 @@ class EnemyUnit(Unit, Dangerous, Movable):
 
 
 class Shooting:
-    def shoot(self):
+    def __init__(self,shooting_speed):
+        self.last_frame_shoot = -1
+        self.shooting_speed = shooting_speed
+        self.is_shooter = True
+
+    def shoot(self, frame):
+        self.last_frame_shoot = frame
         bullet = Bullet("basic_bullet", "bb", 1, 1, 1, (self.coords[0],self.coords[1]), 3, 1, None , Settings.BASIC_BULLET_IMAGE) # hard coded to one type of bullet but how do i make the chick shoot?
+
 
 class Modifier:
     pass
@@ -130,9 +137,9 @@ class BasicChick(EnemyUnit):
 
 
 class ShootingChick(EnemyUnit, Shooting):
-    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
-        super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
-
+    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path, shooting_speed):
+        EnemyUnit.__init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
+        Shooting.__init__(self, 20)  # this should be loaded from settings
 
 class BossChick(EnemyUnit):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):

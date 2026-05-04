@@ -9,6 +9,7 @@ class Game:
         # self.enemy_units = dict()
         self.enemy_units_on_screen = list()
         self.friendly_units_on_screen = list()
+        self.bullets_on_screen = list()
 
     def initialize(self): # i want to not hard coded the stuff below
         self.level.initialize()  # hard coded
