@@ -17,6 +17,8 @@ class Settings:
                 'BASIC_NERD_IMAGE',
                 'BASIC_CHICK_IMAGE',
                 'SHOOTING_CHICK_IMAGE',
+                'BASIC_BULLET_UNIT',
+                'BASIC_BULLET_IMAGE'
             }:
                 settings[setting] = value
 
@@ -52,6 +54,10 @@ class Settings:
                 cls.BASIC_CHICK_UNIT = value
             elif setting == "SHOOTING_CHICK_UNIT":
                 cls.SHOOTING_CHICK_UNIT = value
+            elif setting == "BASIC_BULLET_UNIT":
+                cls.BASIC_BULLET_UNIT = value
+            elif setting == "BASIC_BULLET_IMAGE":
+                cls.BASIC_BULLET_IMAGE = value
             elif setting == "BASIC_NERD_IMAGE":
                 cls.BASIC_NERD_IMAGE = value
             elif setting == "BASIC_CHICK_IMAGE":

@@ -15,5 +15,7 @@ BASIC_CHICK_UNIT=X
 BASIC_CHICK_IMAGE=./assets/basic_chick.png
 SHOOTING_CHICK_UNIT=Y
 SHOOTING_CHICK_IMAGE=./assets/shooting_chick.png
+BASIC_BULLET_UNIT=None  # is this neccesry even?
+BASIC_BULLET_IMAGE=./assets/basic_bullet.png
 BASIC_NERD_UNIT=N
 BASIC_NERD_IMAGE=./assets/basic_friendly_unit.png

@@ -111,13 +111,14 @@ class EnemyUnit(Unit, Dangerous, Movable):
         Unit.__init__(self, unit_type, name, hp, coords, zaxis, modifiers, image_path)
         Dangerous.__init__(self, dmg, pulse)
         Movable.__init__(self, speed)
+
     def attack(self, target):
         super().attack(self, target)
 
 
 class Shooting:
     def shoot(self):
-        bullet = Bullet("basic_bullet", "bb", 1, 1, 1, (self.coords[0],self.coords[1]), 3, 1, None , None)
+        bullet = Bullet("basic_bullet", "bb", 1, 1, 1, (self.coords[0],self.coords[1]), 3, 1, None , Settings.BASIC_BULLET_IMAGE) # hard coded to one type of bullet but how do i make the chick shoot?
 
 class Modifier:
     pass
