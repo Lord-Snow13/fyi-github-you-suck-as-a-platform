@@ -50,6 +50,11 @@ def assign_targets():
         unit.calc_speed(unit.x_distance(game.friendly_units_on_screen[0]),unit.y_distance(game.friendly_units_on_screen[0]))
 
 
+def assign_shooting_targets():
+    for unit in game.bullets_on_screen:
+        unit.calc_speed(unit.x_distance(game.friendly_units_on_screen[0]),unit.y_distance(game.friendly_units_on_screen[0]))  #temporu
+
+
 def move_all_enemies(): # under matanice need to add a basic move right to left
     for unit in game.enemy_units_on_screen:
         unit.move()
@@ -88,6 +93,7 @@ while running:
     # d = game.enemy_units_on_screen[1].check_distance(game.enemy_units_on_screen[1], game.friendly_units_on_screen[1])
     # print(game.enemy_units_on_screen[1].coords, game.enemy_units_on_screen[1].is_in_range(d, attack_distance_type=AttackDistance.SHORT))
     shooting(total_frames)
+    assign_shooting_targets()
     move_all_bullets()
     draw_all_units()
     pygame.display.flip()
