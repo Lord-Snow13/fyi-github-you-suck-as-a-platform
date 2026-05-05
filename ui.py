@@ -55,16 +55,22 @@ def move_all_enemies(): # under matanice need to add a basic move right to left
         unit.move()
 
 
+def move_all_bullets(): # under matanice need to add a basic move right to left
+    for unit in game.bullets_on_screen:
+        unit.move()
+
+
 def shooting(frame):
     for unit in game.friendly_units_on_screen:
         if unit.is_shooter:
             if frame - unit.last_frame_shoot == unit.shooting_speed:
-                unit.shoot(frame)
-
+                bullet = unit.shoot(frame)
+                game.bullets_on_screen.append(bullet)
     for unit in game.enemy_units_on_screen:
         if unit.is_shooter:
             if frame - unit.last_frame_shoot == unit.shooting_speed:
-                unit.shoot(frame)
+                bullet = unit.shoot(frame)
+                game.bullets_on_screen.append(bullet)
 
 
 current_wave = 1
@@ -81,8 +87,9 @@ while running:
     move_all_enemies()
     # d = game.enemy_units_on_screen[1].check_distance(game.enemy_units_on_screen[1], game.friendly_units_on_screen[1])
     # print(game.enemy_units_on_screen[1].coords, game.enemy_units_on_screen[1].is_in_range(d, attack_distance_type=AttackDistance.SHORT))
-    draw_all_units()
     shooting(total_frames)
+    move_all_bullets()
+    draw_all_units()
     pygame.display.flip()
     clock.tick(Settings.FPS)
     current_frame += 1

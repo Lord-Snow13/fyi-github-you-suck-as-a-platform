@@ -126,6 +126,7 @@ class Shooting:
         self.last_frame_shoot = frame
         bullet = Bullet("basic_bullet", "bb", 1, 1, 1, (self.coords[0],self.coords[1]), 3, 1, None , Settings.BASIC_BULLET_IMAGE) # hard coded to one type of bullet but how do i make the chick shoot?
         print(f"i am shooting{frame}")
+        return bullet
 
 class Modifier:
     pass
