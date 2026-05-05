@@ -43,6 +43,8 @@ def draw_all_units():
         draw_unit(unit)
     for unit in game.enemy_units_on_screen:
         draw_unit(unit)
+    for unit in game.bullets_on_screen:
+        draw_unit(unit)
 
 
 def assign_targets():
