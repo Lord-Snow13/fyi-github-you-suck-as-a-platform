@@ -19,9 +19,9 @@ class Level:
         for wave_number in range(1, self.waves + 1):
             self.enemies_dbug[wave_number] = ''
             self.enemies[wave_number] = []
+        x = 0
         for wave_index in range(self.waves):
             wave_number = wave_index + 1
-            x = 0
             for row_index in range(Settings.ROWS):
                 if wave_index < len(all_rows[row_index]):
                     self.enemies_dbug[wave_number] += all_rows[row_index][wave_index]

@@ -142,7 +142,7 @@ class BasicChick(EnemyUnit):
 class ShootingChick(EnemyUnit, Shooting):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path, shooting_speed):
         EnemyUnit.__init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
-        Shooting.__init__(self, 600)  # this should be loaded from settings
+        Shooting.__init__(self, 45)  # this should be loaded from settings
 
     def str(self):
         return f"word{self.last_frame_shot}"

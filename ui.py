@@ -75,13 +75,16 @@ def shooting(frame):
                 game.bullets_on_screen.append(bullet)
     c = 0
     x = 0
+    test = set()
     for unit in game.enemy_units_on_screen:
         if unit.is_shooter:
-            print(unit.name)
-            if frame - unit.last_frame_shot == unit.shooting_speed:
+            test.add(unit)
+            if (frame - unit.last_frame_shot) % unit.shooting_speed + 1 == unit.shooting_speed:
                 bullet = unit.shoot(frame)
                 game.bullets_on_screen.append(bullet)
-
+    print(test)
+    for unit in test:
+        print(unit.name, unit.last_frame_shot)
 
 
 current_wave = 1
