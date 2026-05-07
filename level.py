@@ -21,6 +21,7 @@ class Level:
             self.enemies[wave_number] = []
         for wave_index in range(self.waves):
             wave_number = wave_index + 1
+            x = 0
             for row_index in range(Settings.ROWS):
                 if wave_index < len(all_rows[row_index]):
                     self.enemies_dbug[wave_number] += all_rows[row_index][wave_index]
@@ -29,8 +30,9 @@ class Level:
                                                  Settings.BASIC_CHICK_IMAGE)
                         self.enemies[wave_number].append(enemy)
                     elif all_rows[row_index][wave_index] == Settings.SHOOTING_CHICK_UNIT:
-                        enemy = units.ShootingChick(1, 1, 'enemy', 'egirl', 1, [Settings.WIDTH+1,row_index * Settings.GRID_BLOCK_SIZE], 1, 1, 1,
+                        enemy = units.ShootingChick(1, 1, 'enemy', f"shooting_chick_number {x}", 1, [Settings.WIDTH+1,row_index * Settings.GRID_BLOCK_SIZE], 1, 1, 1,
                                                  Settings.SHOOTING_CHICK_IMAGE, 20)
+                        x += 1
                         self.enemies[wave_number].append(enemy)
                 else:
                     self.enemies_dbug[wave_number] += ' '

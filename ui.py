@@ -70,14 +70,18 @@ def move_all_bullets(): # under matanice need to add a basic move right to left
 def shooting(frame):
     for unit in game.friendly_units_on_screen:
         if unit.is_shooter:
-            if frame - unit.last_frame_shoot == unit.shooting_speed:
+            if frame - unit.last_frame_shot == unit.shooting_speed:
                 bullet = unit.shoot(frame)
                 game.bullets_on_screen.append(bullet)
+    c = 0
+    x = 0
     for unit in game.enemy_units_on_screen:
         if unit.is_shooter:
-            if frame - unit.last_frame_shoot == unit.shooting_speed:
+            print(unit.name)
+            if frame - unit.last_frame_shot == unit.shooting_speed:
                 bullet = unit.shoot(frame)
                 game.bullets_on_screen.append(bullet)
+
 
 
 current_wave = 1

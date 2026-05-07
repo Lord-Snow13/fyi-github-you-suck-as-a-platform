@@ -27,6 +27,8 @@ class Unit:
         self.coords[1] = y
 
 
+
+
 class Dangerous:
     def __init__(self, dmg, pulse):
         self.dmg = dmg
@@ -118,12 +120,12 @@ class EnemyUnit(Unit, Dangerous, Movable):
 
 class Shooting:
     def __init__(self,shooting_speed):
-        self.last_frame_shoot = -1
+        self.last_frame_shot = -1
         self.shooting_speed = shooting_speed
         self.is_shooter = True
 
     def shoot(self, frame):
-        self.last_frame_shoot = frame
+        self.last_frame_shot = frame
         bullet = Bullet("basic_bullet", "bb", 1, 1, 1, [self.coords[0],self.coords[1]], 3, 1, None , Settings.BASIC_BULLET_IMAGE) # hard coded to one type of bullet but how do i make the chick shoot?
         print(f"i am shooting{frame}")
         return bullet
@@ -140,7 +142,10 @@ class BasicChick(EnemyUnit):
 class ShootingChick(EnemyUnit, Shooting):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path, shooting_speed):
         EnemyUnit.__init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
-        Shooting.__init__(self, 20)  # this should be loaded from settings
+        Shooting.__init__(self, 600)  # this should be loaded from settings
+
+    def str(self):
+        return f"word{self.last_frame_shot}"
 
 class BossChick(EnemyUnit):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
