@@ -22,6 +22,7 @@ TOUGH_CHICK_SUPER_HP=10
 BASIC_CHICK_IMAGE=./assets/tough_chick_super.png
 SHOOTING_CHICK_UNIT=D
 SHOOTING_CHICK_IMAGE=./assets/shooting_chick.png
+SHOOTING_CHICK_HP=3
 BASIC_NERD_UNIT=N
 BASIC_NERD_IMAGE=./assets/basic_friendly_unit.png
 BASIC_BULLET_IMAGE=./assets/basic_bullet.png

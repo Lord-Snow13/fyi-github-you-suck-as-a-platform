@@ -12,13 +12,20 @@ class Settings:
             elif setting in {
                 'TITLE',
                 'BASIC_CHICK_UNIT',
+                'TOUGH_CHICK_UNIT',
+                'TOUGH_CHICK_SUPER_UNIT',
                 'SHOOTING_CHICK_UNIT',
                 'BASIC_NERD_UNIT',
+                'BASIC_CHICK_HP',
+                'TOUGH_CHICK_HP',
+                'TOUGH_CHICK_SUPER_HP',
+                'SHOOTING_CHICK_HP',
                 'BASIC_NERD_IMAGE',
                 'BASIC_CHICK_IMAGE',
                 'SHOOTING_CHICK_IMAGE',
                 'BASIC_BULLET_UNIT',
-                'BASIC_BULLET_IMAGE'
+                'BASIC_BULLET_IMAGE',
+
             }:
                 settings[setting] = value
 
