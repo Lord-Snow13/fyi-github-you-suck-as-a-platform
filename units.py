@@ -150,7 +150,7 @@ class ToughChick(EnemyUnit):
         super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
 
 
-class ToughChicksuper(EnemyUnit):
+class ToughChickSuper(EnemyUnit):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
         super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
 

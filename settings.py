@@ -6,8 +6,6 @@ class Settings:
             settings_string = f.read().split('\n')
         settings = dict()
         for settings_row in settings_string:
-            if settings_row == '\n':
-                continue
             setting, value = settings_row.split('=')
             if value.isnumeric():
                 settings[setting] = int(value)
@@ -50,14 +48,31 @@ class Settings:
                 cls.LONG_RANGE_DISTANCE = value * cls.GRID_BLOCK_SIZE
             elif setting == 'TITLE':
                 cls.TITLE = value
+
             elif setting == "BASIC_NERD_UNIT":
                 cls.BASIC_NERD_UNIT = value
             elif setting == "BASIC_CHICK_UNIT":
                 cls.BASIC_CHICK_UNIT = value
+            elif setting == "TOUGH_CHICK_UNIT":
+                cls.TOUGH_CHICK_UNIT = value
+            elif setting == "TOUGH_CHICK_SUPER_UNIT":
+                cls.TOUGH_CHICK_SUPER_UNIT = value
             elif setting == "SHOOTING_CHICK_UNIT":
                 cls.SHOOTING_CHICK_UNIT = value
             elif setting == "BASIC_BULLET_UNIT":
                 cls.BASIC_BULLET_UNIT = value
+
+            elif setting == "BASIC_CHICK_HP":
+                cls.BASIC_CHICK_HP = value
+            elif setting == "SHOOTING_CHICK_HP":
+                cls.SHOOTING_CHICK_HP = value
+            elif setting == "TOUGH_CHICK_HP":
+                cls.TOUGH_CHICK_HP = value
+            elif setting == "TOUGH_CHICK_SUPER_HP":
+                cls.TOUGH_CHICK_SUPER_HP = value
+            elif setting == "BASIC_BULLET_HP":
+                cls.BASIC_BULLET_HP = value
+
             elif setting == "BASIC_BULLET_IMAGE":
                 cls.BASIC_BULLET_IMAGE = value
             elif setting == "BASIC_NERD_IMAGE":
@@ -66,6 +81,11 @@ class Settings:
                 cls.BASIC_CHICK_IMAGE = value
             elif setting == "SHOOTING_CHICK_IMAGE":
                 cls.SHOOTING_CHICK_IMAGE = value
+            elif setting == "TOUGH_CHICK_IMAGE":
+                cls.TOUGH_CHICK_IMAGE = value
+            elif setting == "TOUGH_CHICK_SUPER_IMAGE":
+                cls.TOUGH_CHICK_SUPER_IMAGE = value
+
             elif setting == 'COLOR_BLACK':
                 cls.COLOR_BLACK = value
             elif setting == 'COLOR_BLUE':
