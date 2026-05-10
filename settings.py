@@ -6,6 +6,8 @@ class Settings:
             settings_string = f.read().split('\n')
         settings = dict()
         for settings_row in settings_string:
+            if settings_row == '\n':
+                continue
             setting, value = settings_row.split('=')
             if value.isnumeric():
                 settings[setting] = int(value)

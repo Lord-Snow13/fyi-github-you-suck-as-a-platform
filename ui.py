@@ -79,7 +79,7 @@ def shooting(frame):
     for unit in game.enemy_units_on_screen:
         if unit.is_shooter:
             test.add(unit)
-            if (frame - unit.last_frame_shot) % unit.shooting_speed + 1 == unit.shooting_speed:
+            if (frame - unit.last_frame_shot) % unit.shooting_speed == 0:
                 bullet = unit.shoot(frame)
                 game.bullets_on_screen.append(bullet)
     print(test)

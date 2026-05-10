@@ -12,9 +12,13 @@ class Unit:
         self.modifiers = modifiers
         self.sprite = None
         self.image_path = image_path
+        self.sound_path = None
+        self.sound_level = 11  # why 11 because its one louder than 10 soo if i need that extra umf i can go one louder
 
     def __str__(self):
-        return f"unit type:{self.unit_type} name:{self.name} hp:{self.hp} coords:{self.coords} zaxis:{self.zaxis} modifiers:{self.modifiers} image_path:{self.image_path}"
+        return (f"unit type:{self.unit_type} name:{self.name} hp:{self.hp} "
+                f"coords:{self.coords} zaxis:{self.zaxis} modifiers:{self.modifiers} "
+                f"image_path:{self.image_path} sound_path:{self.sound_path} sound_level:{self.sound_level}")
 
     def x_distance(self, other_point):
         return other_point.coords[0] - self.coords[0]  # x is the 0 of chords
@@ -120,13 +124,15 @@ class EnemyUnit(Unit, Dangerous, Movable):
 
 class Shooting:
     def __init__(self,shooting_speed):
-        self.last_frame_shot = -1
+        self.last_frame_shot = 0
         self.shooting_speed = shooting_speed
         self.is_shooter = True
 
     def shoot(self, frame):
         self.last_frame_shot = frame
-        bullet = Bullet("basic_bullet", "bb", 1, 1, 1, [self.coords[0],self.coords[1]], 3, 1, None , Settings.BASIC_BULLET_IMAGE) # hard coded to one type of bullet but how do i make the chick shoot?
+        bullet = Bullet("basic_bullet", "bb", 1, 1, 1,
+                        [self.coords[0],self.coords[1]], 3, 1,
+                        None , Settings.BASIC_BULLET_IMAGE)
         print(f"i am shooting{frame}")
         return bullet
 
@@ -139,6 +145,17 @@ class BasicChick(EnemyUnit):
         super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
 
 
+class ToughChick(EnemyUnit):
+    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
+        super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
+
+
+class ToughChicksuper(EnemyUnit):
+    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
+        super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
+
+
+
 class ShootingChick(EnemyUnit, Shooting):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path, shooting_speed):
         EnemyUnit.__init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
@@ -146,6 +163,7 @@ class ShootingChick(EnemyUnit, Shooting):
 
     def str(self):
         return f"word{self.last_frame_shot}"
+
 
 class BossChick(EnemyUnit):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
