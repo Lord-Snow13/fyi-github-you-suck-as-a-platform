@@ -25,6 +25,8 @@ class Settings:
                 'SHOOTING_CHICK_IMAGE',
                 'BASIC_BULLET_UNIT',
                 'BASIC_BULLET_IMAGE',
+                'TOUGH_CHICK_IMAGE',
+                'TOUGH_CHICK_SUPER_IMAGE',
 
             }:
                 settings[setting] = value
