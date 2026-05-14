@@ -14,6 +14,7 @@ class Unit:
         self.image_path = image_path
         self.sound_path = None
         self.sound_level = 11  # why 11 because its one louder than 10 soo if i need that extra umf i can go one louder
+        self.invisible = False
 
     def __str__(self):
         return (f"unit type:{self.unit_type} name:{self.name} hp:{self.hp} "
@@ -155,10 +156,15 @@ class ToughChickSuper(EnemyUnit):
         super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
 
 
+class InvisibleChick(EnemyUnit):
+    def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
+        super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
+        self.invisible = False
+
 
 class ShootingChick(EnemyUnit, Shooting):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path, shooting_speed):
-        EnemyUnit.__init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
+        EnemyUnit.__init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path,)
         Shooting.__init__(self, 45)  # this should be loaded from settings
 
     def str(self):

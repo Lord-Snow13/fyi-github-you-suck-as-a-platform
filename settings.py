@@ -95,6 +95,14 @@ class Settings:
             elif setting == "TOUGH_CHICK_SUPER_IMAGE":
                 cls.TOUGH_CHICK_SUPER_IMAGE = value
 
+
+            elif setting == "INVISIBLE_CHICK_UNIT":
+                cls.INVISIBLE_CHICK_UNIT = value
+            elif setting == "INVISIBLE_CHICK_HP":
+                cls.INVISIBLE_CHICK_HP = value
+            elif setting == "INVISIBLE_CHICK_IMAGE":
+                cls.INVISIBLE_CHICK_IMAGE = value
+
             elif setting == 'COLOR_BLACK':
                 cls.COLOR_BLACK = value
             elif setting == 'COLOR_BLUE':
