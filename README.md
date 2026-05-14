@@ -3,19 +3,19 @@ invisblety untill death
 redirection by the wall
 walls extend range of bullets
 bullets that slow down 
-bullets that afect burn 
-bullets that
+bullets that burn 
+bullets that electrfiy meaning they cuase a small amount of dmg to nearby enemies  
 instant kill
 teleportion
 sheild
 explosion kill a bunch of enemies in one area 
 explosins that kills a whole lane
-turn enemies weak 
+turn enemies vurnable 
 vodo magic you make one enemy unit change its alliance making it work for you
 an enemy that spawns more enemies next to it
 running faster for certien enemies
 a unit that builds a path for enemies to run faster 
-
+range for enemy shooter it wont shoot until in range
 
 
 defentliy make diffrenet tairain mechanices 
