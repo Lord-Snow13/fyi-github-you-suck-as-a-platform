@@ -42,7 +42,8 @@ def draw_all_units():
     for unit in game.friendly_units_on_screen:
         draw_unit(unit)
     for unit in game.enemy_units_on_screen:
-        draw_unit(unit)
+        if unit.invisible == False:
+            draw_unit(unit)
     for unit in game.bullets_on_screen:
         draw_unit(unit)
 
@@ -95,6 +96,11 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        # if event.type == pygame.MOUSEWHEEL: # a test for invisible enemeis to show with mousewheel
+        #     for enemy in game.enemy_units_on_screen:
+        #         if enemy.invisible:
+        #             enemy.invisible = False
+
     screen.fill(Settings.COLOR_BLACK)
     draw_grid()
     assign_targets()
