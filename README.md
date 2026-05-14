@@ -18,8 +18,8 @@ a unit that builds a path for enemies to run faster
 
 
 
-maybe make diffrenet tairain mechanices 
-
+defentliy make diffrenet tairain mechanices 
+make randomly placed obstecalse in each level 
 
 unit list 
 [
