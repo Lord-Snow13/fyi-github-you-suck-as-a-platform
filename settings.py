@@ -12,21 +12,27 @@ class Settings:
             elif setting in {
                 'TITLE',
                 'BASIC_CHICK_UNIT',
-                'TOUGH_CHICK_UNIT',
-                'TOUGH_CHICK_SUPER_UNIT',
-                'SHOOTING_CHICK_UNIT',
-                'BASIC_NERD_UNIT',
                 'BASIC_CHICK_HP',
-                'TOUGH_CHICK_HP',
-                'TOUGH_CHICK_SUPER_HP',
-                'SHOOTING_CHICK_HP',
-                'BASIC_NERD_IMAGE',
                 'BASIC_CHICK_IMAGE',
+                'TOUGH_CHICK_UNIT',
+                'TOUGH_CHICK_HP',
+                'TOUGH_CHICK_IMAGE',
+                'TOUGH_CHICK_SUPER_UNIT',
+                'TOUGH_CHICK_SUPER_HP',
+                'TOUGH_CHICK_SUPER_IMAGE',
+                'SHOOTING_CHICK_UNIT',
+                'SHOOTING_CHICK_HP',
                 'SHOOTING_CHICK_IMAGE',
+                'INVISIBLE_CHICK_UNIT',
+                'INVISIBLE_CHICK_HP',
+                'INVISIBLE_CHICK_IMAGE',
+                'BASIC_NERD_UNIT',
+                'BASIC_NERD_IMAGE',
                 'BASIC_BULLET_UNIT',
                 'BASIC_BULLET_IMAGE',
-                'TOUGH_CHICK_IMAGE',
-                'TOUGH_CHICK_SUPER_IMAGE',
+
+
+
 
             }:
                 settings[setting] = value
@@ -94,7 +100,6 @@ class Settings:
                 cls.TOUGH_CHICK_IMAGE = value
             elif setting == "TOUGH_CHICK_SUPER_IMAGE":
                 cls.TOUGH_CHICK_SUPER_IMAGE = value
-
 
             elif setting == "INVISIBLE_CHICK_UNIT":
                 cls.INVISIBLE_CHICK_UNIT = value

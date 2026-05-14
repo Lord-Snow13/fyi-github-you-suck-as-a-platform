@@ -62,6 +62,13 @@ class Level:
                                                       Settings.SHOOTING_CHICK_IMAGE)
                         self.enemies[wave_number].append(enemy)
 
+                    elif all_rows[row_index][wave_index] == Settings.INVISIBLE_CHICK_UNIT:
+                        enemy = units.InvisibleChick(1, 1, 'enemy', 'barbie', Settings.INVISIBLE_CHICK_HP,
+                                                     [Settings.WIDTH + 1, row_index * Settings.GRID_BLOCK_SIZE],
+                                                     1, 1, 1,
+                                                     Settings.INVISIBLE_CHICK_IMAGE)
+                        self.enemies[wave_number].append(enemy)
+
                 else:
                     self.enemies_dbug[wave_number] += ' '
 

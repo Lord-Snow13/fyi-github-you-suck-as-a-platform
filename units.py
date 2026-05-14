@@ -159,7 +159,7 @@ class ToughChickSuper(EnemyUnit):
 class InvisibleChick(EnemyUnit):
     def __init__(self, dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path):
         super().__init__(dmg, pulse, unit_type, name, hp, coords, speed, zaxis, modifiers, image_path)
-        self.invisible = False
+        self.invisible = True
 
 
 class ShootingChick(EnemyUnit, Shooting):
