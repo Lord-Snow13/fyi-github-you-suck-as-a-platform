@@ -79,3 +79,10 @@ level 4
 
 
 level 4 boss punk chick need to think of mini game 
+
+
+
+etc have a convostion in the game where someone ask the chad why wont he fight other men and he answer "that's gay" and the mod behind him says "we don't do that here" and another one yells "yeah! we only shoot women!"
+
+
+at the end of the game you fight a mecha chick a chick that is blended from all the others akira style monster you get to save one girl out of the bunch and cut to end credits where the girl promises to change while they walk off to sunset toghter baby chad and woman hand and hand she give a look to the camera and winks 
