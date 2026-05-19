@@ -199,6 +199,10 @@ class Wall(FriendlyUnit, Movable):
         FriendlyUnit.__init__(self, price, unit_type, name, hp, coords, zaxis, modifiers, image_path)
         Movable.__init__(self, speed)
 
+class Nerd(FriendlyUnit, Shooting):
+    def __init__(self, price, unit_type, name, hp, coords,speed, zaxis, modifiers, image_path):
+        FriendlyUnit.__init__(self, price, unit_type, name, hp, coords, zaxis, modifiers, image_path)
+        Shooting.__init__(self, 45)  # this should be loaded from settings
 
 class Grid(FriendlyUnit):
     def __init__(self, price, unit_type, name, hp, coords, zaxis, modifiers, image_path):

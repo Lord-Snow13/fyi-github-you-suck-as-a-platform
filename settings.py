@@ -30,6 +30,7 @@ class Settings:
                 'BASIC_NERD_IMAGE',
                 'BASIC_BULLET_UNIT',
                 'BASIC_BULLET_IMAGE',
+                'NERD_IMAGE',
 
 
 
@@ -100,6 +101,8 @@ class Settings:
                 cls.TOUGH_CHICK_IMAGE = value
             elif setting == "TOUGH_CHICK_SUPER_IMAGE":
                 cls.TOUGH_CHICK_SUPER_IMAGE = value
+            elif setting == "NERD_IMAGE":
+                cls.NERD_IMAGE = value
 
             elif setting == "INVISIBLE_CHICK_UNIT":
                 cls.INVISIBLE_CHICK_UNIT = value

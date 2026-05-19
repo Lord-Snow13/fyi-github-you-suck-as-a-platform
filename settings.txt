@@ -29,3 +29,4 @@ SHOOTING_CHICK_HP=3
 BASIC_NERD_UNIT=N
 BASIC_NERD_IMAGE=./assets/basic_friendly_unit.png
 BASIC_BULLET_IMAGE=./assets/basic_bullet.png
+NERD_IMAGE=./assets/nerd.png
