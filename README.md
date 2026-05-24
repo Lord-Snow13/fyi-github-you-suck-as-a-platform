@@ -16,7 +16,7 @@ an enemy that spawns more enemies next to it
 running faster for certien enemies
 a unit that builds a path for enemies to run faster 
 range for enemy shooter it wont shoot until in range
-
+the player has an health bar that some enemies can target directly 
 
 defentliy make diffrenet tairain mechanices 
 make randomly placed obstecalse in each level 
@@ -38,6 +38,14 @@ a unit that cant attack but can take damage
 wall unit that splits bullets in to smaller bullets and redirects them in to two lanes or three 
 wall unit that makes bullets bigger 
 big tatas lady that shoots milk that melts stuff quickly
+big vagaga lady that sucks the bullets from some lanes 
+enemy unit that rasies mods to fight for her 
+a lady that makes do a cleaning mini game every 5 sec
+musucle lady that leg locks mods in her thighs making them die for longer
+std lady that does posining affect on you meaning main player hp
+seed stealing woman that makes deformed mod babies that fight for her
+ladyboy lady that kiss's your soilders making them commit susicde 
+
 ]
 
 
