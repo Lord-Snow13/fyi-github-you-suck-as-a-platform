@@ -31,6 +31,15 @@ class Settings:
                 'BASIC_BULLET_UNIT',
                 'BASIC_BULLET_IMAGE',
                 'NERD_IMAGE',
+                'PIPE_1_UNIT',
+                'PIPE_2_UNIT',
+                'PIPE_3_UNIT',
+                'PIPE_1_IMAGE',
+                'PIPE_2_IMAGE',
+                'PIPE_3_IMAGE',
+                'PIPE_1_HP',
+                'PIPE_2_HP',
+                'PIPE_3_HP',
 
 
 
@@ -110,6 +119,25 @@ class Settings:
                 cls.INVISIBLE_CHICK_HP = value
             elif setting == "INVISIBLE_CHICK_IMAGE":
                 cls.INVISIBLE_CHICK_IMAGE = value
+
+            elif setting == "PIPE_1_UNIT":
+                cls.PIPE_1_UNIT = value
+            elif setting == "PIPE_2_UNIT":
+                cls.PIPE_2_UNIT = value
+            elif setting == "PIPE_3_UNIT":
+                cls.PIPE_3_UNIT = value
+            elif setting == "PIPE_1_IMAGE":
+                cls.PIPE_1_IMAGE = value
+            elif setting == "PIPE_2_IMAGE":
+                cls.PIPE_2_IMAGE = value
+            elif setting == "PIPE_3_IMAGE":
+                cls.PIPE_3_IMAGE = value
+            elif setting == "PIPE_1_HP":
+                cls.PIPE_1_HP = value
+            elif setting == "PIPE_2_HP":
+                cls.PIPE_2_HP = value
+            elif setting == "PIPE_3_HP":
+                cls.PIPE_3_HP = value
 
             elif setting == 'COLOR_BLACK':
                 cls.COLOR_BLACK = value
