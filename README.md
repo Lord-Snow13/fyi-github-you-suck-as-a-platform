@@ -9,6 +9,7 @@ instant kill
 teleportion
 sheild
 explosion kill a bunch of enemies in one area 
+
 explosins that kills a whole lane
 turn enemies vurnable 
 vodo magic you make one enemy unit change its alliance making it work for you
