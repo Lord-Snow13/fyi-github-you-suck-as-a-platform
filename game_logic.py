@@ -13,8 +13,8 @@ class Game:
 
     def initialize(self): # i want to not hard coded the stuff below
         self.level.initialize()  # hard coded
-        self.friendly_units_on_screen.append(Pipe(1, 'pipe', 'glory hole', 5, [500, 600], 1, 1, 1, Settings.PIPE_1_IMAGE))  # change this to read from settings
-        self.friendly_units_on_screen.append(Nerd(1, 'wall', 'glory hole', 5, [0, 600], 1, 1, 1, Settings.BASIC_NERD_IMAGE))
+        self.friendly_units_on_screen.append(Pipe(1, 'pipe', 'glory hole', 5, [500, 600], 1, 1, 1, Settings.PIPE_1_IMAGE,{'L':True,'R':False,'U':False,'D':True}))
+        self.friendly_units_on_screen.append(Nerd(1, 'nerd', 'glory hole', 5, [0, 600], 1, 1, 1, Settings.BASIC_NERD_IMAGE))
 
 
         # self.enemy_units_on_screen[1] = BasicEnemy(1, 'wall', 'glory hole', 5, 1, [100, 200], 1, 1,1)  # change this to coded
