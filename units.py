@@ -194,10 +194,16 @@ class Miner(FriendlyUnit, Movable):
         Movable.__init__(self, speed)
 
 
-class Wall(FriendlyUnit, Movable):
+class Pipe(FriendlyUnit, Movable):
     def __init__(self, price, unit_type, name, hp, coords,speed, zaxis, modifiers, image_path):
         FriendlyUnit.__init__(self, price, unit_type, name, hp, coords, zaxis, modifiers, image_path)
         Movable.__init__(self, speed)
+        self.openings = {'L':False,
+                       'R':False,
+                       'U':False,
+                       'D':False}
+        self.balls_went_in_here = None
+        
 
 class Nerd(FriendlyUnit, Shooting):
     def __init__(self, price, unit_type, name, hp, coords,speed, zaxis, modifiers, image_path):
@@ -219,7 +225,7 @@ if __name__ == '__main__':
     eu = EnemyUnit(1, 1, 'enemy', 'black punisher', 1, [0, 0], 60, 1, 1, "assets/basic_chick.png")
     print(eu)
 
-    w = Wall(1, 'wall', 'glory hole', 5, [100, 0], 1, 1, 1,"./assets/basic_friendly_unit.png")
+    w = Pipe(1, 'wall', 'glory hole', 5, [100, 0], 1, 1, 1,"./assets/basic_friendly_unit.png")
     print(w)
     eu.attack(w)
     print(w)
