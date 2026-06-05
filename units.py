@@ -15,7 +15,7 @@ class Unit:
         self.sound_path = None
         self.sound_level = 11  # why 11 because its one louder than 10 soo if i need that extra umf i can go one louder
         self.invisible = False
-
+        self.hitbox = coords[0],coords[1],coords[0] + Settings.GRID_BLOCK_SIZE,coords[1] + Settings.GRID_BLOCK_SIZE
     def __str__(self):
         return (f"unit type:{self.unit_type} name:{self.name} hp:{self.hp} "
                 f"coords:{self.coords} zaxis:{self.zaxis} modifiers:{self.modifiers} "
@@ -32,7 +32,12 @@ class Unit:
         self.coords[1] = y
 
 
-
+    def hit_scan(self,other):
+        ALL CODE AND NO PLAY MAKES LIOR A LONLEY BOY
+        ALL CODE AND NO PLAY MAKES LIOR A LONLEY BOY
+        REDRUM
+        REDRUM
+        REDRUM
 
 class Dangerous:
     def __init__(self, dmg, pulse):
