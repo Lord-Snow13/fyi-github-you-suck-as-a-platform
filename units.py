@@ -32,12 +32,12 @@ class Unit:
         self.coords[1] = y
 
 
-    def hit_scan(self,other):
-        ALL CODE AND NO PLAY MAKES LIOR A LONLEY BOY
-        ALL CODE AND NO PLAY MAKES LIOR A LONLEY BOY
-        REDRUM
-        REDRUM
-        REDRUM
+    # def hit_scan(self,other):
+    #     ALL CODE AND NO PLAY MAKES LIOR A LONLEY BOY
+    #     ALL CODE AND NO PLAY MAKES LIOR A LONLEY BOY
+    #     REDRUM
+    #     REDRUM
+    #     REDRUM
 
 class Dangerous:
     def __init__(self, dmg, pulse):
@@ -136,9 +136,15 @@ class Shooting:
 
     def shoot(self, frame):
         self.last_frame_shot = frame
-        bullet = Bullet("basic_bullet", "bb", 1, 1, 1,
-                        [self.coords[0],self.coords[1]], 3, 1,
-                        None , Settings.BASIC_BULLET_IMAGE)
+        if isinstance(self, FriendlyUnit):
+            bullet = FriendlyBullet("f_bullet", "bb", 1, 1, 1,
+                            [self.coords[0],self.coords[1]], 3, 1,
+                            None , Settings.BASIC_BULLET_IMAGE)
+        else:
+            bullet = EnemyBullet("e_bullet", "bb", 1, 1, 1,
+                            [self.coords[0], self.coords[1]], 3, 1,
+                            None, Settings.BASIC_BULLET_IMAGE)
+
         print(f"i am shooting{frame}")
         return bullet
 
@@ -227,6 +233,24 @@ class Bullet(Projectile):
 
         super().__init__(unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers, image_path)
 
+    def hit(self, target):
+        bulletx = self.coords[0]
+        bullety = self.coords[1] + Settings.GRID_BLOCK_SIZE/2
+        target_left_x = target.coords[0]
+        target_right_x = target.coords[0] + Settings.GRID_BLOCK_SIZE/2
+        target_up_y = target.coords[1]
+        target_down_y = target.coords[1] + Settings.GRID_BLOCK_SIZE/2
+        if target_left_x < bulletx < target_right_x and target_up_y < bullety < target_down_y:
+            return True
+        return False
+
+
+class FriendlyBullet(Bullet, FriendlyUnit):
+    pass
+
+
+class EnemyBullet(Bullet, EnemyUnit):
+    pass
 
 if __name__ == '__main__':
     eu = EnemyUnit(1, 1, 'enemy', 'black punisher', 1, [0, 0], 60, 1, 1, "assets/basic_chick.png")

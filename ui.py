@@ -2,6 +2,7 @@ import pygame
 import sys
 import game_logic
 from settings import Settings
+from units import EnemyUnit, FriendlyUnit
 from settings import AttackDistance
 from level import Level
 
@@ -35,6 +36,7 @@ def draw_unit(unit):
     x = unit.coords[0]  # this coord is the x coord
     y = unit.coords[1]  # this one is the y coord
     unit.sprite = pygame.image.load(unit.image_path).convert_alpha() # needs to be convert_alpha
+    unit.sprite = pygame.transform.scale(unit.sprite, (Settings.GRID_BLOCK_SIZE,Settings.GRID_BLOCK_SIZE))
     screen.blit(unit.sprite, (x, y))
 
 
@@ -83,10 +85,23 @@ def shooting(frame):
             if (frame - unit.last_frame_shot) % unit.shooting_speed == 0:
                 bullet = unit.shoot(frame)
                 game.bullets_on_screen.append(bullet)
-    print(test)
+    # print(test)
     for unit in test:
         print(unit.name, unit.last_frame_shot)
 
+
+def detecthits():
+    mybigdict = dict()
+    for bullet in game.bullets_on_screen:
+
+        for friendly_unit in game.friendly_units_on_screen:
+            was_it_hit = bullet.hit(friendly_unit)
+            if was_it_hit:
+                if isinstance(bullet, EnemyUnit):
+                    print("hogackha by enemy unit")
+                else:
+                    print("Mallon")
+        #for next time figure out whetear the bullet is friendly or and enemys bullet
 
 current_wave = 1
 current_frame = 0
@@ -110,6 +125,7 @@ while running:
     shooting(total_frames)
     assign_shooting_targets()
     move_all_bullets()
+    detecthits()
     draw_all_units()
     pygame.display.flip()
     clock.tick(Settings.FPS)
