@@ -236,15 +236,35 @@ class Bullet(Projectile):
         super().__init__(unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers, image_path)
 
     def hit(self, target):
-        bulletx = self.coords[0]
-        bullety = self.coords[1] + Settings.GRID_BLOCK_SIZE/2
+        bulletx = self.coords[0] + Settings.GRID_BLOCK_SIZE / 2
+        bullety = self.coords[1] + Settings.GRID_BLOCK_SIZE / 2
         target_left_x = target.coords[0]
-        target_right_x = target.coords[0] + Settings.GRID_BLOCK_SIZE/2
+        target_right_x = target.coords[0] + Settings.GRID_BLOCK_SIZE / 2
         target_up_y = target.coords[1]
-        target_down_y = target.coords[1] + Settings.GRID_BLOCK_SIZE/2
-        if target_left_x < bulletx < target_right_x and target_up_y < bullety < target_down_y:
-            return True
-        return False
+        target_down_y = target.coords[1] + Settings.GRID_BLOCK_SIZE / 2
+
+        # if target_left_x < bulletx < target_right_x and target_up_y < bullety < target_down_y:
+        #     return True
+
+        target_x_the_closer_one = target_left_x if (abs(bulletx - target_left_x) <
+                                                    abs(bulletx - target_right_x)) else target_right_x
+        target_y_the_closer_one = target_down_y if (abs(bullety - target_down_y) <
+                                                    abs(bullety - target_up_y)) else target_up_y
+
+        x_distance = abs(bulletx - target_x_the_closer_one)
+        y_distance = abs(bullety - target_y_the_closer_one)
+
+        if target_down_y < bullety < target_up_y:
+            # IF THE BULLET COMES FROM BLUE QUADRANTS (COMING TOWARDS THE LEFT OR RIGHT SIDES)
+            c_distance_from_target = x_distance
+        elif target_left_x < bulletx < target_right_x:
+            # IF THE BULLET COMES FROM GREEN QUADRANTS (COMING TOWARDS THE UP OR DOWN SIDE)
+            c_distance_from_target = y_distance
+        else:
+            # IF THE BULLET COMES FROM RED QUADRANTS (COMING TOWARDS THE VERTICES)
+            c_distance_from_target = (x_distance ** 2 + y_distance ** 2) ** 0.5
+
+        return c_distance_from_target < Settings.GRID_BLOCK_SIZE / 4  # <- HARDCODED! WORKS IF THE BULLET IMAGE SIZE IS HALF OF THE GRID SIZE
 
 
 class FriendlyBullet(Bullet, FriendlyUnit):
