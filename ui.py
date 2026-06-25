@@ -99,6 +99,7 @@ def detecthits():
             if was_it_hit:
                 if isinstance(bullet, EnemyUnit):
                     print("hogackha by enemy unit")
+                    # need to clear the enemy bullets on screen thus i need to make enemy_bullets
                 else:
                     print("Mallon")
         #for next time figure out whetear the bullet is friendly or and enemys bullet
