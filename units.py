@@ -145,7 +145,7 @@ class Shooting:
                             [self.coords[0], self.coords[1]], 3, 1,
                             None, Settings.BASIC_BULLET_IMAGE)
 
-        print(f"i am shooting{frame}")
+        # print(f"i am shooting{frame}")
         return bullet
 # WE WANT TO FLIP IMAGES THATS PART ONE AND FLIP HIT DETECTION MAYBE LIOR CAN DO THIS BYHIMSELF MAKE THE BULLETS A CIRCLE AND NO NEED TO FLIP
 # WHEN THE SHOOTER LOCKS ON TO THE TARGET THEN THE MATHS OF THE HITBOX AND TARGET FOR THE BULLET SHOULD BE MADE

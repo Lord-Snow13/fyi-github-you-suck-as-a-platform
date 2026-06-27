@@ -1,10 +1,12 @@
 import pygame
 import sys
 import game_logic
+import gc
 from settings import Settings
-from units import EnemyUnit, FriendlyUnit
+from units import EnemyUnit, FriendlyUnit, EnemyBullet
 from settings import AttackDistance
 from level import Level
+
 
 
 
@@ -87,23 +89,28 @@ def shooting(frame):
                 game.bullets_on_screen.append(bullet)
     # print(test)
     for unit in test:
-        print(unit.name, unit.last_frame_shot)
-
+        # print(unit.name, unit.last_frame_shot)
+        pass
 
 def detecthits():
     mybigdict = dict()
+    bullets_to_remove = []
     for bullet in game.bullets_on_screen:
-
         for friendly_unit in game.friendly_units_on_screen:
             was_it_hit = bullet.hit(friendly_unit)
             if was_it_hit:
+                bullets_to_remove.append(bullet)
                 if isinstance(bullet, EnemyUnit):
-                    print("hogackha by enemy unit")
-                    # need to clear the enemy bullets on screen thus i need to make enemy_bullets
-                else:
-                    print("Mallon")
-        #for next time figure out whetear the bullet is friendly or and enemys bullet
+                    pass
 
+
+                else:
+                    pass
+    if total_frames % Settings.FPS == 0:
+        for bullet in bullets_to_remove:
+            game.bullets_on_screen.remove(bullet)
+            del bullet
+        gc.collect()
 current_wave = 1
 current_frame = 0
 total_frames = 0
