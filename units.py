@@ -106,10 +106,11 @@ class Env(Unit):
 
 
 class Projectile(Unit, Dangerous, Movable):
-    def __init__(self, unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers, image_path):
+    def __init__(self, unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers, image_path, shooter):
         Unit.__init__(self,unit_type, name, hp, coords, zaxis, modifiers, image_path)
         Dangerous.__init__(self, dmg, pulse)
         Movable.__init__(self, speed)
+        self.shooter = shooter
 
 
 class FriendlyUnit(Unit):
@@ -139,11 +140,11 @@ class Shooting:
         if isinstance(self, FriendlyUnit):
             bullet = FriendlyBullet("f_bullet", "bb", 1, 1, 1,
                             [self.coords[0],self.coords[1]], 3, 1,
-                            None , Settings.BASIC_BULLET_IMAGE)
+                            None , Settings.BASIC_BULLET_IMAGE, self)
         else:
             bullet = EnemyBullet("e_bullet", "bb", 1, 1, 1,
                             [self.coords[0], self.coords[1]], 3, 1,
-                            None, Settings.BASIC_BULLET_IMAGE)
+                            None, Settings.BASIC_BULLET_IMAGE, self)
 
         # print(f"i am shooting{frame}")
         return bullet
@@ -231,9 +232,8 @@ class Grid(FriendlyUnit):
 
 
 class Bullet(Projectile):
-    def __init__(self, unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers, image_path):
-
-        super().__init__(unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers, image_path)
+    def __init__(self, unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers, image_path, shooter):
+        super().__init__(unit_type, name, dmg, pulse, hp, coords, speed, zaxis, modifiers, image_path, shooter)
 
     def hit(self, target):
         bulletx = self.coords[0] + Settings.GRID_BLOCK_SIZE / 2
