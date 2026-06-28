@@ -1,7 +1,6 @@
 import pygame
 import sys
 import game_logic
-import gc
 from settings import Settings
 from units import EnemyUnit, FriendlyUnit, EnemyBullet
 from settings import AttackDistance
@@ -106,11 +105,10 @@ def detecthits():
 
                 else:
                     pass
-    if total_frames % Settings.FPS == 0:
-        for bullet in bullets_to_remove:
-            game.bullets_on_screen.remove(bullet)
-            del bullet
-        gc.collect()
+
+    for bullet in bullets_to_remove:
+       game.bullets_on_screen.remove(bullet)
+
 current_wave = 1
 current_frame = 0
 total_frames = 0
