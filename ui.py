@@ -2,7 +2,7 @@ import pygame
 import sys
 import game_logic
 from settings import Settings
-from units import EnemyUnit, FriendlyUnit, EnemyBullet
+from units import EnemyUnit, FriendlyUnit, EnemyBullet, Pipe
 from settings import AttackDistance
 from level import Level
 
@@ -101,11 +101,20 @@ def detecthits():
                 bullets_to_remove.append(bullet)
                 if isinstance(bullet, EnemyUnit):
                     pass
-
-
                 else:
-                    pass
-
+                    if isinstance(friendly_unit, Pipe):
+                        if friendly_unit.openings["L"]:
+                            if bullet.shooter.coords[0] < friendly_unit.coords[0]:
+                                friendly_unit.balls_went_in_here["L"] = True
+                        if friendly_unit.openings["R"]:
+                            if bullet.shooter.coords[0] < friendly_unit.coords[0]: # need to change coords
+                                friendly_unit.balls_went_in_here["R"] = True
+                        if friendly_unit.openings["U"]:
+                            if bullet.shooter.coords[0] < friendly_unit.coords[0]: # need to change coords
+                                friendly_unit.balls_went_in_here["U"] = True
+                        if friendly_unit.openings["D"]:
+                            if bullet.shooter.coords[0] < friendly_unit.coords[0]: # need to change coords
+                                friendly_unit.balls_went_in_here["D"] = True
     for bullet in bullets_to_remove:
        game.bullets_on_screen.remove(bullet)
 
