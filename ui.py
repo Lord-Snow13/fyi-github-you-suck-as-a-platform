@@ -106,7 +106,7 @@ def detecthits():
                         if friendly_unit.openings["L"]:
                             if bullet.shooter.coords[0] < friendly_unit.coords[0]:
                                 friendly_unit.balls_went_in_here["L"] = True
-                                print(friendly_unit.balls_went_in_here)
+                                # print(friendly_unit.balls_went_in_here)
                         if friendly_unit.openings["R"]:
                             if bullet.shooter.coords[0] > friendly_unit.coords[0]: # need to change coords
                                 friendly_unit.balls_went_in_here["R"] = True
