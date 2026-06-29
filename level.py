@@ -28,14 +28,14 @@ class Level:
                     if all_rows[row_index][wave_index] == Settings.BASIC_CHICK_UNIT:
                         enemy = units.BasicChick(1, 1, 'enemy', 'goth mama',
                                                  Settings.BASIC_CHICK_HP,
-                                                 [Settings.WIDTH+1,row_index * Settings.GRID_BLOCK_SIZE],
+                                                 [Settings.WIDTH+1,row_index * Settings.GRID_BLOCK_SIZE + Settings.ROW_OFFSET],
                                                  1, 1, 1,
                                                  Settings.BASIC_CHICK_IMAGE)
                         self.enemies[wave_number].append(enemy)
                     elif all_rows[row_index][wave_index] == Settings.SHOOTING_CHICK_UNIT:
                         enemy = units.ShootingChick(1, 1, 'enemy', f"shooting_chick_number {x}",
                                                     Settings.SHOOTING_CHICK_HP,
-                                                    [Settings.WIDTH+1,row_index * Settings.GRID_BLOCK_SIZE],
+                                                    [Settings.WIDTH+1,row_index * Settings.GRID_BLOCK_SIZE + Settings.ROW_OFFSET],
                                                     1, 1, 1,
                                                  Settings.SHOOTING_CHICK_IMAGE, 20)
                         x += 1
@@ -43,28 +43,28 @@ class Level:
 
                     elif all_rows[row_index][wave_index] == Settings.TOUGH_CHICK_UNIT:
                         enemy = units.ToughChick(1, 1, 'enemy', 'punk', Settings.TOUGH_CHICK_HP,
-                                                 [Settings.WIDTH + 1, row_index * Settings.GRID_BLOCK_SIZE],
+                                                 [Settings.WIDTH + 1, row_index * Settings.GRID_BLOCK_SIZE +Settings.ROW_OFFSET],
                                                  1, 1, 1,
                                                  Settings.TOUGH_CHICK_IMAGE)
                         self.enemies[wave_number].append(enemy)
 
                     elif all_rows[row_index][wave_index] == Settings.TOUGH_CHICK_SUPER_UNIT:
                         enemy = units.ToughChickSuper(1, 1, 'enemy', 'barbie', Settings.TOUGH_CHICK_SUPER_HP,
-                                                 [Settings.WIDTH + 1, row_index * Settings.GRID_BLOCK_SIZE],
+                                                 [Settings.WIDTH + 1, row_index * Settings.GRID_BLOCK_SIZE + Settings.ROW_OFFSET],
                                                  1, 1, 1,
                                                  Settings.TOUGH_CHICK_SUPER_IMAGE)
                         self.enemies[wave_number].append(enemy)
 
                     elif all_rows[row_index][wave_index] == Settings.SHOOTING_CHICK_UNIT:
                         enemy = units.InvisibleChick(1, 1, 'enemy', 'barbie', Settings.SHOOTING_CHICK_HP,
-                                                      [Settings.WIDTH + 1, row_index * Settings.GRID_BLOCK_SIZE],
+                                                      [Settings.WIDTH + 1, row_index * Settings.GRID_BLOCK_SIZE + Settings.ROW_OFFSET],
                                                       1, 1, 1,
                                                       Settings.SHOOTING_CHICK_IMAGE)
                         self.enemies[wave_number].append(enemy)
 
                     elif all_rows[row_index][wave_index] == Settings.INVISIBLE_CHICK_UNIT:
                         enemy = units.InvisibleChick(1, 1, 'enemy', 'barbie', Settings.INVISIBLE_CHICK_HP,
-                                                     [Settings.WIDTH + 1, row_index * Settings.GRID_BLOCK_SIZE],
+                                                     [Settings.WIDTH + 1, row_index * Settings.GRID_BLOCK_SIZE + Settings.ROW_OFFSET],
                                                      1, 1, 1,
                                                      Settings.INVISIBLE_CHICK_IMAGE)
                         self.enemies[wave_number].append(enemy)

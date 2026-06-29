@@ -26,7 +26,7 @@ def draw_grid():
         for col in range(1, Settings.COLS + 1):
             rect = pygame.Rect(
                 col * Settings.GRID_BLOCK_SIZE,
-                row * Settings.GRID_BLOCK_SIZE-0.5*Settings.GRID_BLOCK_SIZE,
+                row * Settings.GRID_BLOCK_SIZE-Settings.ROW_OFFSET,
                 Settings.GRID_BLOCK_SIZE,
                 Settings.GRID_BLOCK_SIZE
             )

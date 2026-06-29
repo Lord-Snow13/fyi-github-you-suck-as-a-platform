@@ -150,7 +150,7 @@ class Settings:
 
         cls.WIDTH = cls.COLS * cls.GRID_BLOCK_SIZE + cls.GRID_BLOCK_SIZE
         cls.HEIGHT = cls.ROWS * cls.GRID_BLOCK_SIZE + 2 * cls.GRID_BLOCK_SIZE
-
+        cls.ROW_OFFSET = cls.GRID_BLOCK_SIZE * 0.5
 class AttackDistance:
 
     @classmethod
