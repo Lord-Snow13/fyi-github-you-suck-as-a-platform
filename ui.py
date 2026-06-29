@@ -22,11 +22,11 @@ game.initialize()
 
 
 def draw_grid():
-    for row in range(Settings.ROWS):
-        for col in range(Settings.COLS):
+    for row in range(1, Settings.ROWS + 1):
+        for col in range(1, Settings.COLS + 1):
             rect = pygame.Rect(
                 col * Settings.GRID_BLOCK_SIZE,
-                row * Settings.GRID_BLOCK_SIZE,
+                row * Settings.GRID_BLOCK_SIZE-0.5*Settings.GRID_BLOCK_SIZE,
                 Settings.GRID_BLOCK_SIZE,
                 Settings.GRID_BLOCK_SIZE
             )
@@ -106,14 +106,15 @@ def detecthits():
                         if friendly_unit.openings["L"]:
                             if bullet.shooter.coords[0] < friendly_unit.coords[0]:
                                 friendly_unit.balls_went_in_here["L"] = True
+                                print(friendly_unit.balls_went_in_here)
                         if friendly_unit.openings["R"]:
-                            if bullet.shooter.coords[0] < friendly_unit.coords[0]: # need to change coords
+                            if bullet.shooter.coords[0] > friendly_unit.coords[0]: # need to change coords
                                 friendly_unit.balls_went_in_here["R"] = True
                         if friendly_unit.openings["U"]:
-                            if bullet.shooter.coords[0] < friendly_unit.coords[0]: # need to change coords
+                            if bullet.shooter.coords[1] < friendly_unit.coords[1]: # need to change coords
                                 friendly_unit.balls_went_in_here["U"] = True
                         if friendly_unit.openings["D"]:
-                            if bullet.shooter.coords[0] < friendly_unit.coords[0]: # need to change coords
+                            if bullet.shooter.coords[1] > friendly_unit.coords[1]: # need to change coords
                                 friendly_unit.balls_went_in_here["D"] = True
     for bullet in bullets_to_remove:
        game.bullets_on_screen.remove(bullet)

@@ -148,8 +148,8 @@ class Settings:
             elif setting == 'COLOR_RED':
                 cls.COLOR_RED = value
 
-        cls.WIDTH = cls.COLS * cls.GRID_BLOCK_SIZE
-        cls.HEIGHT = cls.ROWS * cls.GRID_BLOCK_SIZE
+        cls.WIDTH = cls.COLS * cls.GRID_BLOCK_SIZE + cls.GRID_BLOCK_SIZE
+        cls.HEIGHT = cls.ROWS * cls.GRID_BLOCK_SIZE + 2 * cls.GRID_BLOCK_SIZE
 
 class AttackDistance:
 
