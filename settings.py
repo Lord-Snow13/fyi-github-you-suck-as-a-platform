@@ -40,6 +40,7 @@ class Settings:
                 'PIPE_1_HP',
                 'PIPE_2_HP',
                 'PIPE_3_HP',
+                'PIPE_1_S_SPEED'
 
 
 
@@ -138,6 +139,8 @@ class Settings:
                 cls.PIPE_2_HP = value
             elif setting == "PIPE_3_HP":
                 cls.PIPE_3_HP = value
+            elif setting == "PIPE_1_S_SPEED":
+                cls.PIPE_1_S_SPEED = value
 
             elif setting == 'COLOR_BLACK':
                 cls.COLOR_BLACK = value

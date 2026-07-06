@@ -208,15 +208,17 @@ class Miner(FriendlyUnit, Movable):
         Movable.__init__(self, speed)
 
 
-class Pipe(FriendlyUnit, Movable):
-    def __init__(self, price, unit_type, name, hp, coords,speed, zaxis, modifiers, image_path, openings={'L':False,'R':False,'U':False,'D':False}):
+class Pipe(FriendlyUnit, Movable, Shooting):
+    def __init__(self, price, unit_type, name, hp, coords,speed, zaxis, modifiers, image_path, openings={'L':False,'R':False,'U':False,'D':False}, shooting_speed=Settings.PIPE_1_S_SPEED):
         FriendlyUnit.__init__(self, price, unit_type, name, hp, coords, zaxis, modifiers, image_path)
         Movable.__init__(self, speed)
+        Shooting.__init__(self, shooting_speed)
         self.openings = openings.copy()
         self.balls_went_in_here = {'L':False,
                        'R':False,
                        'U':False,
                        'D':False}
+
     def set_opening(self, opening):
         self.openings[opening] = True
 
