@@ -103,6 +103,7 @@ def detecthits():
                     pass
                 else:
                     if isinstance(friendly_unit, Pipe):
+                        friendly_unit.activate()
                         if friendly_unit.openings["L"]:
                             if bullet.shooter.coords[0] < friendly_unit.coords[0]:
                                 friendly_unit.balls_went_in_here["L"] = True
@@ -116,6 +117,7 @@ def detecthits():
                         if friendly_unit.openings["D"]:
                             if bullet.shooter.coords[1] > friendly_unit.coords[1]: # need to change coords
                                 friendly_unit.balls_went_in_here["D"] = True
+
     for bullet in bullets_to_remove:
        game.bullets_on_screen.remove(bullet)
 

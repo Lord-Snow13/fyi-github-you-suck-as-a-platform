@@ -222,6 +222,14 @@ class Pipe(FriendlyUnit, Movable, Shooting):
     def set_opening(self, opening):
         self.openings[opening] = True
 
+    def activate(self):
+        self.is_shooter = True
+
+    def deactivate(self):
+        self.is_shooter = False
+
+
+
 
 class Nerd(FriendlyUnit, Shooting):
     def __init__(self, price, unit_type, name, hp, coords,speed, zaxis, modifiers, image_path):
