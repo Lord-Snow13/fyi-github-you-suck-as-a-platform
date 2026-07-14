@@ -75,8 +75,11 @@ def shooting(frame):
     for unit in game.friendly_units_on_screen:
         if unit.is_shooter:
             if frame - unit.last_frame_shot == unit.shooting_speed:
+                print(unit.name)
                 bullet = unit.shoot(frame)
                 game.bullets_on_screen.append(bullet)
+        else:
+            print("PP",unit.name)
     c = 0
     x = 0
     test = set()
@@ -104,20 +107,23 @@ def detecthits():
                     pass
                 else:
                     if isinstance(friendly_unit, Pipe):
-                        friendly_unit.activate()
+                        print(friendly_unit.name, "is hit")
                         if friendly_unit.openings["L"]:
                             if bullet.shooter.coords[0] < friendly_unit.coords[0]:
                                 friendly_unit.balls_went_in_here["L"] = True
-                                # print(friendly_unit.balls_went_in_here)
+                                friendly_unit.activate()
                         if friendly_unit.openings["R"]:
                             if bullet.shooter.coords[0] > friendly_unit.coords[0]: # need to change coords
                                 friendly_unit.balls_went_in_here["R"] = True
+                                friendly_unit.activate()
                         if friendly_unit.openings["U"]:
                             if bullet.shooter.coords[1] < friendly_unit.coords[1]: # need to change coords
                                 friendly_unit.balls_went_in_here["U"] = True
+                                friendly_unit.activate()
                         if friendly_unit.openings["D"]:
                             if bullet.shooter.coords[1] > friendly_unit.coords[1]: # need to change coords
                                 friendly_unit.balls_went_in_here["D"] = True
+                                friendly_unit.activate()
 
     for bullet in bullets_to_remove:
        game.bullets_on_screen.remove(bullet)
