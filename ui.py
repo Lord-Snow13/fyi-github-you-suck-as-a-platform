@@ -74,12 +74,13 @@ def move_all_bullets(): # under matanice need to add a basic move right to left
 def shooting(frame):
     for unit in game.friendly_units_on_screen:
         if unit.is_shooter:
+            print(unit.name, 'is shooting',unit.last_frame_shot, unit.shooting_speed)
             if frame - unit.last_frame_shot == unit.shooting_speed:
-                print(unit.name)
+
                 bullet = unit.shoot(frame)
                 game.bullets_on_screen.append(bullet)
         else:
-            print("PP",unit.name)
+            print("this unit is not a shooter",unit.name, unit.is_shooter)
     c = 0
     x = 0
     test = set()
@@ -112,6 +113,7 @@ def detecthits():
                             if bullet.shooter.coords[0] < friendly_unit.coords[0]:
                                 friendly_unit.balls_went_in_here["L"] = True
                                 friendly_unit.activate()
+                                print("hit left",friendly_unit.name, friendly_unit.is_shooter)
                         if friendly_unit.openings["R"]:
                             if bullet.shooter.coords[0] > friendly_unit.coords[0]: # need to change coords
                                 friendly_unit.balls_went_in_here["R"] = True
