@@ -99,9 +99,9 @@ def detecthits():
     bullets_to_remove = []
     for bullet in game.bullets_on_screen:
         for friendly_unit in game.friendly_units_on_screen:
-            if bullet.shooter is not friendly_unit:
-                was_it_hit = bullet.hit(friendly_unit)
-            if was_it_hit and bullet.shooter is friendly_unit:
+            # if bullet.shooter is not friendly_unit:
+            was_it_hit = bullet.hit(friendly_unit)
+            if was_it_hit and bullet.shooter is not friendly_unit:
                 bullets_to_remove.append(bullet)
                 if isinstance(bullet, EnemyUnit):
                     pass
