@@ -95,7 +95,7 @@ def shooting(frame):
         # print(unit.name, unit.last_frame_shot)
         pass
 
-def detecthits():
+def detecthits(frame):
     mybigdict = dict()
     bullets_to_remove = []
     for bullet in game.bullets_on_screen:
@@ -113,11 +113,14 @@ def detecthits():
                             if bullet.shooter.coords[0] < friendly_unit.coords[0]:
                                 friendly_unit.balls_went_in_here["L"] = True
                                 friendly_unit.activate()
+                                friendly_unit.last_frame_shot = frame - friendly_unit.shooting_speed
                                 print("hit left",friendly_unit.name, friendly_unit.is_shooter)
+
                         if friendly_unit.openings["R"]:
                             if bullet.shooter.coords[0] > friendly_unit.coords[0]: # need to change coords
                                 friendly_unit.balls_went_in_here["R"] = True
                                 friendly_unit.activate()
+
                         if friendly_unit.openings["U"]:
                             if bullet.shooter.coords[1] < friendly_unit.coords[1]: # need to change coords
                                 friendly_unit.balls_went_in_here["U"] = True
@@ -149,7 +152,7 @@ while running:
     move_all_enemies()
     # d = game.enemy_units_on_screen[1].check_distance(game.enemy_units_on_screen[1], game.friendly_units_on_screen[1])
     # print(game.enemy_units_on_screen[1].coords, game.enemy_units_on_screen[1].is_in_range(d, attack_distance_type=AttackDistance.SHORT))
-    detecthits()
+    detecthits(total_frames)
     shooting(total_frames)
     assign_shooting_targets()
     move_all_bullets()
