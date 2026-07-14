@@ -96,8 +96,9 @@ def detecthits():
     bullets_to_remove = []
     for bullet in game.bullets_on_screen:
         for friendly_unit in game.friendly_units_on_screen:
-            was_it_hit = bullet.hit(friendly_unit)
-            if was_it_hit and bullet.shooter is not friendly_unit:
+            if bullet.shooter is not friendly_unit:
+                was_it_hit = bullet.hit(friendly_unit)
+            if was_it_hit and bullet.shooter is friendly_unit:
                 bullets_to_remove.append(bullet)
                 if isinstance(bullet, EnemyUnit):
                     pass
@@ -140,10 +141,10 @@ while running:
     move_all_enemies()
     # d = game.enemy_units_on_screen[1].check_distance(game.enemy_units_on_screen[1], game.friendly_units_on_screen[1])
     # print(game.enemy_units_on_screen[1].coords, game.enemy_units_on_screen[1].is_in_range(d, attack_distance_type=AttackDistance.SHORT))
+    detecthits()
     shooting(total_frames)
     assign_shooting_targets()
     move_all_bullets()
-    detecthits()
     draw_all_units()
     pygame.display.flip()
     clock.tick(Settings.FPS)

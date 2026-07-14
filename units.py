@@ -148,6 +148,13 @@ class Shooting:
 
         # print(f"i am shooting{frame}")
         return bullet
+
+    def activate(self):
+        self.is_shooter = True
+
+    def deactivate(self):
+        self.is_shooter = False
+
 # WE WANT TO FLIP IMAGES THATS PART ONE AND FLIP HIT DETECTION MAYBE LIOR CAN DO THIS BYHIMSELF MAKE THE BULLETS A CIRCLE AND NO NEED TO FLIP
 # WHEN THE SHOOTER LOCKS ON TO THE TARGET THEN THE MATHS OF THE HITBOX AND TARGET FOR THE BULLET SHOULD BE MADE
 
@@ -222,11 +229,7 @@ class Pipe(FriendlyUnit, Movable, Shooting):
     def set_opening(self, opening):
         self.openings[opening] = True
 
-    def activate(self):
-        self.is_shooter = True
 
-    def deactivate(self):
-        self.is_shooter = False
 
 
 
